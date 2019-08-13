@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<!--
+ * @Description: 
+ * @Autor: YuBiao
+ * @Date: 2019-08-11 21:29:30
+ * @LastEditTime: 2019-08-13 10:47:55
+ -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>透明变清</title>
+    <style>
+        .box {
+
+            position: relative;
+            width: 1018px;
+            height: 916px;
+            border: 1px solid;
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between; */
+
+        }
+
+        .box div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            /* background:  #f40; */
+
+            opacity: 0.2;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+    <script>
+        var obox = document.querySelector('.box');
+        var odiv = obox.getElementsByTagName('div');
+        var pos = [];
+        var row = 9; //9行
+        var col = 10; //10列
+        var str = ' ';
+        
+        //获得每个div的坐标
+        for (var i = 0; i < odiv.length; i++) {
+            pos.push([odiv[i].offsetLeft, odiv[i].offsetTop]);
+        }
+        // console.log(pos);
+
+        for (var i = 0; i < pos.length; i++) {
+            odiv[i].style.transform = 'absolute';
+            odiv[i].style.left = pos[i][0] + "px";
+            odiv[i].style.top = pos[i][1] + "px";
+        }
+
+        for (var i = 0; i < col; i++) {
+            for (var j = 0; j < row; j++) {
+                str +=
+                    `<div style="left:${i*(100+2)}px;top:${j*(100+2)}px;background:url(timg.jpg) no-repeat ${-i*100}px ${-j*100}px;"></div>`
+            }
+        }
+        obox.innerHTML = str;
+
+        //鼠标移入效果
+        for (var i = 0; i < odiv.length; i++) {
+            odiv[i].onmouseover = function () {
+                this.style.opacity = 1;
+                this.style.transform = 'scale(1.5)';
+                this.style.zIndex = 2;
+            };
+
+            odiv[i].onmouseout = function () {
+                this.style.opacity = 1;
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
