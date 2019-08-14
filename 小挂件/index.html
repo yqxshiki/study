@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+ * @Description: 
+ * @Autor: YuBiao
+ * @Date: 2019-07-13 21:51:24
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小挂件</title>
+    <style>
+        body{
+            background: hsl(0, 3%, 68%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .box::before{
+            content: "";
+            height: 8px;
+            width: 50px;
+            border-radius: 50%;
+            position:absolute;
+            left: 50%;
+            top: 60%;
+            background: #3c3c33;;
+            animation: shadow .5s linear infinite;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background: #ffffff;
+            animation: box .5s linear infinite;
+            box-shadow: 0 0 2px #3c3c33;
+            border-radius: 8px;
+        }
+        @keyframes shadow{
+            0%,100%{transform: scaleX(1)}
+            50%{transform: scaleX(1.1)}
+        }
+        @keyframes box{
+            0%{transform: translateY(0)}
+            25%{transform: translateY(10px)}
+            50%{transform: translateY(20px),scale(1.1,0.9)}
+            75%{transform: translateY(10px)}
+            100%{transform: translateY(0)}
+        }
+    </style>
+</head>
+<body> 
+    <div class="box"></div>
+</body>
+</html>
