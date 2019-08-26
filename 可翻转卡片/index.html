@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+ * @Description: 
+ * @Autor: YuBiao
+ * @Date: 2019-08-26 13:20:43
+ -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可翻转卡片</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1370570_is0w97sxpwk.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url(bg.jpg) no-repeat no-repeat center/cover
+        }
+
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 240px;
+        }
+
+        .container .front,
+        .container .back {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(25deg, #0172b0, #88daf7);
+            box-shadow: 6px 6px 14px #01517d, inset 0 0 15px #88daf7;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: .5s cubic-bezier(0.48, -0.56, 0.51, 1.67);
+        }
+
+        .container .front {
+            z-index: 1;
+        }
+
+        .turn {
+            margin: 10px;
+            text-align: right;
+        }
+
+        .turn i {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        h2,
+        h4 {
+            margin: 10px 0;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .links {
+            margin: 35px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .links a {
+            text-decoration: none;
+        }
+
+        .links i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .container .back {
+            transform: rotateY(180deg);
+        }
+
+        .back.back-turn {
+            transform: rotateY(0deg);
+        }
+
+        .front.front-turn {
+            z-index: 0;
+            transform: rotateY(-180deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 正面 -->
+        <div class="front">
+            <span class="turn">
+                <i class="iconfont icon-timerIcon"></i>
+                <!-- 箭头 -->
+            </span>
+            <h2>Therr is frontend lab</h2>
+            <h4> We focus on</h4>
+            <div class="links">
+                <a href="#"><i class="iconfont icon-js"></i></a>
+                <a href="#"><i class="iconfont icon-css"></i></a>
+                <a href="#"><i class="iconfont icon-html"></i></a>
+                <a href="#"><i class="iconfont icon-mintui"></i></a>
+                <a href="#"><i class="iconfont icon-vue"></i></a>
+                <a href="#"><i class="iconfont icon-jQuery"></i></a>
+            </div>
+
+        </div>
+        <!-- 反面 -->
+        <div class="back">
+            <span class="turn">
+                <i class="iconfont icon-timerIcon"></i>
+                <!-- 箭头 -->
+            </span>
+            <h2>Contact us</h2>
+            <h4>through the following ways</h4>
+            <div class="links">
+
+                <a href="#"><i class="iconfont icon-qq"></i></a>
+                <a href="#"><i class="iconfont icon-weixin"></i></a>
+                <a href="#"><i class="iconfont icon-zhifubaorenzheng"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $($(".turn i").click(
+            function () {
+                $(".back").toggleClass("back-turn");
+                $(".front").toggleClass("front-turn");
+            }
+        ))
+    </script>
+</body>
+
+</html>
