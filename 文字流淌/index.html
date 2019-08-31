@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+ * @Description: 
+ * @Autor: YuBiao
+ * @Date: 2019-08-30 19:23:46
+ -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字流淌</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            /* background: url("./1.jpg") no-repeat; */
+            background: #333333;
+            background-size: 50%;
+        }
+
+        .middle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .middle h1 {
+            font-size: 100px;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #2c3e5036;
+            background-image: url("./4e60a440f1a7aa6669b1efb70e124c24.jpeg");
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: change 15s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes change {
+            0% {
+                background-position: left 0 top 0px;
+            }
+
+            100% {
+                background-position: left 1000px top 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="middle">
+        <h1>Animation</h1>
+    </div>
+    <script>
+        //阻止默认事件
+        document.onselectstart = function () {
+            return false;
+        }
+    </script>
+</body>
+
+</html>
