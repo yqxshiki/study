@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+ * @Description: 
+ * @Autor: YuBiao
+ * @Date: 2019-08-29 09:12:55
+ -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歌词滚动</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 600px;
+        }
+
+        .container audio {
+            display: inline-block;
+            width: 100%;
+            outline: none;
+        }
+
+        .container .gc {
+            width: 600px;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .container .gc ul {
+            transition: .7s;
+        }
+
+        .container .gc ul li {
+            color: #777777;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding-top: 10px;
+            font-family: sans-serif;
+            animation: change 3s linear infinite;
+        }
+
+        .container .gc ul li.active {
+            color: #da2222;
+            font-size: 25px;
+        }
+
+        @keyframes change {
+            0% {
+                transform: scale(1) translateX(0px) rotateY(0deg);
+            }
+
+            25% {
+                transform: scale(0.8) translateX(100px) rotateY(45deg);
+            }
+
+            50% {
+                transform: scale(0.6) translateX(-100px) rotateY(90deg);
+            }
+
+            75% {
+                transform: scale(0.8) translateX(-100px) rotateY(135deg);
+            }
+
+            100% {
+                transform: scale(1) translateX(100px) rotateY(180d0eg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <audio src="1.mp3" controls></audio>
+        <div class="gc">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <script src="./jquery-3.4.0.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.ripples/0.5.3/jquery.ripples.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
